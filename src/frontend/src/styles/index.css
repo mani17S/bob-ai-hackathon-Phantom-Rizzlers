@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Entry stylesheet - import order matters:
+   1.  Tailwind engine
+   2.  tokens.css    → design tokens (@theme) + theme-switch variables
+   3.  base.css      → element defaults / reset layer
+   ========================================================================== */
+
+@import "tailwindcss";
+@import "./tokens.css";
+@import "./base.css";
