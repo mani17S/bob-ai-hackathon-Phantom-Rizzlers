@@ -12,6 +12,8 @@
 | **Track** | AI |
 | **Team Lead** | Shashank Yadav — shashankyadav.10a@gmail.com |
 | **Members** | Jammi Sunder Karthikeya |
+| **Members** | MANIKANTA SRINIVAS SARIKI - manikantasrinivassariki@gmail.com|
+
 
 ---
 
