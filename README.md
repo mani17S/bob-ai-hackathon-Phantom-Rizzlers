@@ -1,123 +1,47 @@
-# 🚀 [Your Project Title Here]
+# Phantom Rizzlers: Anomaly Console (IBM Bob AI Hackathon)
 
-> ⚠️ **Replace everything in `[ ]` brackets with your actual content before submission.**
+A team entry in the **AI track** of the IBM Bob AI Hackathon. This repository is my fork of the team repo; the part of the project that lives here, and that I built, is the **web console for browsing detected anomalies**.
 
----
+[![Frontend CI](https://github.com/mani17S/bob-ai-hackathon-Phantom-Rizzlers/actions/workflows/frontend.yml/badge.svg)](https://github.com/mani17S/bob-ai-hackathon-Phantom-Rizzlers/actions/workflows/frontend.yml)
 
-## 👥 Team
+## My contribution: the frontend (`src/frontend`)
 
-| Field | Value |
+A React + TypeScript + Vite + Tailwind CSS v4 console with a token-based design system.
+
+| Area | What's in it |
 |---|---|
-| **Team Name** | Phantom Rizzlers |
-| **Track** | AI |
-| **Team Lead** | Shashank Yadav — shashankyadav.10a@gmail.com |
-| **Members** | Jammi Sunder Karthikeya |
-| **Members** | MANIKANTA SRINIVAS SARIKI - manikantasrinivassariki@gmail.com|
+| **Dashboard** | Overview with stat cards and a recent-anomalies list |
+| **Anomaly feed** | Search, severity filter, expandable detail rows |
+| **Design system** | UI primitives (Button, Card, Badge, Input, Skeleton, Spinner, EmptyState) and app composites (Sidebar, Topbar, ThemeToggle, PageHeader, StatCard), driven by CSS design tokens; light/dark theme |
+| **Data layer** | Typed service layer (`services/`), a `useApi` hook with loading, error and stale-response handling, and a fetch client with timeouts |
+| **Demo mode** | With no `VITE_API_URL`, the app serves mock data and labels **every screen** with a "Demo data" banner and chip, so mock numbers are never mistaken for real ones |
 
+Design choices worth noting: pages never call `fetch` directly (they go through `services/*`), features are self-contained folders, and `@/` path aliases keep imports clean. Full structure and the design-token reference are in [`src/frontend/README.md`](src/frontend/README.md).
 
----
-
-## 🎯 Problem Statement
-
-> In 2–3 sentences: What problem does your project solve? Who experiences this problem?
-
-[Describe the real-world problem your project addresses. Be specific about who the user is and what pain point they face.]
-
----
-
-## 💡 Solution
-
-> In 2–3 sentences: What did you build? How does it solve the problem above?
-
-[Describe your solution clearly. Explain the core mechanism — what makes it work.]
-
----
-
-## ✨ Key Features
-
-- **Feature 1:** [Brief description — e.g., "Real-time anomaly detection using watsonx.ai"]
-- **Feature 2:** [Brief description]
-- **Feature 3:** [Brief description]
-- **Feature 4:** [Optional]
-- **Feature 5:** [Optional]
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Technologies |
-|---|---|
-| **Languages** | [e.g., Python, TypeScript] |
-| **Frameworks** | [e.g., FastAPI, React] |
-| **IBM Technologies** | [e.g., watsonx.ai, IBM Bob, IBM Cloud] |
-| **Databases** | [e.g., PostgreSQL, Redis] |
-| **Other** | [e.g., Docker, GitHub Actions] |
-
----
-
-## 📁 Repository Structure
-
-```
-├── src/                  # All source code
-├── docs/                 # Written documentation
-│   ├── problem-statement.md
-│   ├── solution-overview.md
-│   ├── architecture.md
-│   └── setup-guide.md
-├── demo/                 # Demo artifacts
-│   ├── screenshots/      # App screenshots
-│   └── demo-video-link.txt  # Link to demo video
-├── presentation/         # Slide deck
-└── submission.yaml       # Structured submission metadata
-```
-
----
-
-## ⚡ How to Run
-
-> **Copy these exact steps from your [`docs/setup-guide.md`](docs/setup-guide.md)**
+### Run it
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/[your-repo].git
-cd [your-repo]
-
-# 2. Install dependencies
-[your install command here]
-
-# 3. Configure environment
-cp .env.example .env
-# Edit .env with your values
-
-# 4. Run the project
-[your run command here]
+cd src/frontend
+npm ci
+npm run dev          # http://localhost:5173, runs in demo mode with mock data
+npm run typecheck    # strict TypeScript
+npm run build        # production build
 ```
 
----
+Typecheck and production build are verified in CI on every push (see badge).
 
-## 🖥️ Demo
+## Status and scope (honest summary)
 
-| Artifact | Link |
-|---|---|
-| 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
-| 🌐 Live Demo | [See demo/live-demo-url.txt](demo/live-demo-url.txt) |
-| 🖼️ Screenshots | [See demo/screenshots/](demo/screenshots/) |
-| 📊 Presentation | [See presentation/slides.pdf](presentation/) |
+- This fork contains the **frontend** only. It runs on **mock data**; it is not connected to a live backend or model here.
+- The hackathon's submission template files (`docs/`, `submission.yaml`, `demo/`) in this repo are **still the unfilled templates**; they are not a finished write-up of the team's full solution.
+- No automated UI tests yet. Next steps would be component tests (Vitest + Testing Library) and wiring `VITE_API_URL` to the team's API.
 
----
+## Repository layout
 
-## ⚠️ Known Limitations
+```
+src/frontend/    React + TypeScript console (this is the work in this repo)
+docs/            hackathon template docs (not yet filled in)
+submission.yaml  hackathon metadata template
+```
 
-> Be honest — judges appreciate transparency over overclaiming.
-
-- [Limitation 1: e.g., "Authentication is mocked — not production-ready"]
-- [Limitation 2: e.g., "Only tested on Chrome"]
-- [Limitation 3: e.g., "Feature X is scaffolded but not fully implemented"]
-
----
-
-## 🏅 What We're Most Proud Of
-
-[Tell the judges what part of your submission is strongest and worth paying close attention to.]
-
----
+Original repository: [NotRealShanks/bob-ai-hackathon-Phantom-Rizzlers](https://github.com/NotRealShanks/bob-ai-hackathon-Phantom-Rizzlers).
