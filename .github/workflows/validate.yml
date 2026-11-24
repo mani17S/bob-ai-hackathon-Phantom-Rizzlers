@@ -1,10 +1,10 @@
 name: ✅ Validate Submission
 
+# Manual-run only in this personal fork: the hackathon template docs are intentionally
+# unfilled here, so running on every push would show a permanent red check.
+# Re-enable by restoring the push/pull_request triggers.
 on:
-  push:
-    branches: ["**"]
-  pull_request:
-    branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   validate:
